@@ -32,12 +32,16 @@ svg {
 
 @keyframes pulsate {
   50% {
-    transform: rotate(-15deg);
+    transform: rotate(-15deg) scale(1.1);
     fill: gold;
   }
 }
 
 @keyframes offset {
+  60% {
+    stroke-opacity: 1;
+  }
+
   100% {
     stroke-dashoffset: 0;
   }
@@ -66,6 +70,7 @@ svg {
 
 .stars-bg {
   stroke: #95C7E8;
+  stroke-opacity: 0;
   stroke-width: 6;
   stroke-dasharray: 815;
   stroke-dashoffset: 815;
