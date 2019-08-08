@@ -4,23 +4,78 @@
 
 body {
   padding-top: 60px;
-	background: #0f4e7a;
+  background: #0f4e7a;
 }
 
 svg {
-	margin: auto;
+  margin: auto;
   display: block;
-	width: 28%;
+  width: 28%;
 }
 
 /* --------------------------
   Keyframes
 --------------------------- */
+@keyframes slide-up {
+  0% {
+    transform: translateY(200px);
+  }
 
+  60% {
+    transform: translateY(-8px);
+  }
+
+  80% {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes pulsate {
+  50% {
+    transform: rotate(-15deg);
+    fill: gold;
+  }
+}
+
+@keyframes offset {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
 
 
 /* --------------------------
   SVG Styles
 --------------------------- */
+.star {
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+.star:nth-of-type(2) {
+  animation: slide-up 1s linear both, pulsate 0.5s 2.6s linear;
+}
+
+.star:nth-of-type(1) {
+  animation: slide-up 1s 0.8s both, pulsate 0.5s 3.0s linear;
+}
+
+.star:nth-of-type(3) {
+  animation: slide-up 1s 1.6s both, pulsate 0.5s 3.4s linear;
+}
+
+.stars-bg {
+  stroke: #95C7E8;
+  stroke-width: 6;
+  stroke-dasharray: 815;
+  stroke-dashoffset: 815;
+
+  animation: offset 2s 3.9s linear forwards;
+}
 
 
+/* 
+1 - Slide stars up 1, 2, 3
+2 - Pulsate and rotate stars whilst changing the fill color to light yellow
+3 - Light stroke around the circular shape
+*/
